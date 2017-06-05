@@ -17,8 +17,9 @@ public class MybatisPlusConfig {
 	@Bean
 	public PaginationInterceptor paginationInterceptor() {
 		PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
-		paginationInterceptor.setDialectType(DBType.H2.getDb());
-		//paginationInterceptor.setOptimizeType(Optimize.JSQLPARSER.getOptimize());
+		// paginationInterceptor.setDialectType(DBType.H2.getDb());
+		paginationInterceptor.setDialectType(DBType.MYSQL.getDb());
+		// paginationInterceptor.setOptimizeType(Optimize.JSQLPARSER.getOptimize());
 		return paginationInterceptor;
 	}
 }

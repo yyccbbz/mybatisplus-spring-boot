@@ -1,6 +1,6 @@
 #app
 server:
-    port: 8080
+    port: 8888
 
 #spring
 spring:
@@ -9,19 +9,29 @@ spring:
       enabled: false
 
   # H2 DATABASE CONFIG
+#  datasource:
+#    schema: classpath:/db/schema-h2.sql
+#    data: classpath:/db/data-h2.sql
+#    url: jdbc:h2:mem:testdb
+#    username: sa
+#    password: sa
+#    platform: h2
+#    initialize: true
+#    continue-on-error: true
+#  h2:
+#    console:
+#      enabled: true
+#      path: /console
+
+  #mysql
   datasource:
-    schema: classpath:/db/schema-h2.sql
-    data: classpath:/db/data-h2.sql
-    url: jdbc:h2:mem:testdb
-    username: sa
-    password: sa
-    platform: h2
-    initialize: true
-    continue-on-error: true
-  h2:
-    console:
-      enabled: true
-      path: /console
+    url: jdbc:mysql://116.62.134.242:3306/springboot?characterEncoding=utf8&useSSL=false
+    username: springboot
+    password: springboot
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+
 
 #mybatis
 mybatis-plus:
@@ -39,4 +49,5 @@ mybatis-plus:
 
 #logging
 logging:
-  level: debug
+  level:
+    com.baomidou.springboot: debug
