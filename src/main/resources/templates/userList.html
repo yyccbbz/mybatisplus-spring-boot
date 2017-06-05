@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>用户列表</title>
+</head>
+<body>
+<h1>users list</h1>
+
+<table border="1">
+    <tr>
+        <th>序号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>类别</th>
+        <th>角色</th>
+        <th>手机</th>
+        <th>日期</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}">...</td>
+        <td th:text="${user.name}">...</td>
+        <td th:text="${user.age}">...</td>
+        <td th:text="${user.testType}">...</td>
+        <td th:text="${user.role}">...</td>
+        <td th:text="${user.phone}">...</td>
+        <td th:text="${user.testDate}">...</td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+<table border="2">
+    <tr>
+        <th>序号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>类别</th>
+        <th>角色</th>
+        <th>手机</th>
+        <th>日期</th>
+    </tr>
+    <tr data-th-each="user : ${users}">
+        <td data-th-text="${user.id}">...</td>
+        <td data-th-text="${user.name}">...</td>
+        <td data-th-text="${user.age}">...</td>
+        <td data-th-text="${user.testType}">...</td>
+        <td data-th-text="${user.role}">...</td>
+        <td data-th-text="${user.phone}">...</td>
+        <td data-th-text="${user.testDate}">...</td>
+    </tr>
+</table>
+
+<p>
+    <a href="./hello.html" th:href="@{/}">Return to hello</a>
+</p>
+</body>
+</html>

@@ -32,11 +32,12 @@ public class Application {
 	 */
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(Application.class);
-		app.setBannerMode(Banner.Mode.OFF);
+//		app.setBannerMode(Banner.Mode.OFF);
 		app.run(args);
 //		SpringApplication.run(Application.class, args);
 		logger.info("PortalApplication is sussess!");
-		System.err.println("sample started. http://localhost:8080/user/test");
+		System.err.println("sample started 1. http://localhost:8888/user/page");
+		System.err.println("sample started 2. http://localhost:8888/hello");
 	}
 
 }

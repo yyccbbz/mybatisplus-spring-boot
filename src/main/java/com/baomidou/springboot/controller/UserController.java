@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.*;
 
@@ -28,16 +29,30 @@ public class UserController {
 	private IUserService userService;
 
 
+	@ApiOperation(value = "测试页面，用户列表",notes = "")
+	@RequestMapping(value = "/userList",method = RequestMethod.GET)
+	public ModelAndView getUserTable(){
+		ModelAndView mv = new ModelAndView("userList");
+		mv.addObject("users",userService.selectList(null));
+		return mv;
+	}
+
+
 	@ApiOperation(value = "获取用户列表", notes = "获取用户列表")
 	@RequestMapping(value = {""}, method = RequestMethod.GET)
 	public List<User> getUserList() {
 		return 	userService.selectList(null);
 	}
 
+	/**
+	 * 分页 查询列表
+	 *
+	 * @return Page<User>
+	 */
 	@ApiOperation(value = "分页获取用户列表", notes = "分页获取用户列表")
 	@RequestMapping(value = "/page", method = RequestMethod.GET)
 	public Page<User> getUserListByPage() {
-		return userService.selectPage(new Page<User>(), null);
+		return userService.selectPage(new Page<User>(1,2), null);
 	}
 
 

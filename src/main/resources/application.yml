@@ -1,12 +1,13 @@
 #app
 server:
-    port: 8888
+  port: 8888
 
 #spring
 spring:
   devtools:
     restart:
-      enabled: false
+      exclude: static/**,public/**,templates/**
+#      enabled: false
 
   # H2 DATABASE CONFIG
 #  datasource:
@@ -33,7 +34,12 @@ spring:
   #thymeleaf
   thymeleaf:
     cache: false
-
+#    prefix: classpath:/templates/
+#    suffix: .html
+#    mode: HTML5
+#    encoding: UTF-8
+#    content-type: text/html
+#    注释的部分是Thymeleaf默认的配置，如有其它需求可以自行更改
 
 
 #mybatis
