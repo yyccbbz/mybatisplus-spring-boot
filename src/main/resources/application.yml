@@ -30,6 +30,9 @@ spring:
     password: springboot
     driver-class-name: com.mysql.jdbc.Driver
 
+  #thymeleaf
+  thymeleaf:
+    cache: false
 
 
 
