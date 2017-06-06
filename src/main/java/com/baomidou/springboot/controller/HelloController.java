@@ -1,14 +1,9 @@
 package com.baomidou.springboot.controller;
 
 import com.baomidou.springboot.exception.MyException;
-import com.baomidou.springboot.service.IUserService;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,10 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/hello")
 @Controller
 public class HelloController {
-
-    @Autowired
-    private IUserService userService;
-
 
     @RequestMapping("/hello")
     public String hello() throws Exception {
@@ -42,11 +33,4 @@ public class HelloController {
         return "index";
     }
 
-    @ApiOperation(value = "测试页面，用户列表",notes = "")
-    @RequestMapping(value = "/userList",method = RequestMethod.GET)
-    public ModelAndView getUserTable(){
-        ModelAndView mv = new ModelAndView("userList");
-        mv.addObject("users",userService.selectList(null));
-        return mv;
-    }
 }

@@ -9,21 +9,6 @@ spring:
       exclude: static/**,public/**,templates/**
 #      enabled: false
 
-  # H2 DATABASE CONFIG
-#  datasource:
-#    schema: classpath:/db/schema-h2.sql
-#    data: classpath:/db/data-h2.sql
-#    url: jdbc:h2:mem:testdb
-#    username: sa
-#    password: sa
-#    platform: h2
-#    initialize: true
-#    continue-on-error: true
-#  h2:
-#    console:
-#      enabled: true
-#      path: /console
-
   #mysql
   datasource:
     url: jdbc:mysql://116.62.134.242:3306/springboot?characterEncoding=utf8&useSSL=false
@@ -41,13 +26,27 @@ spring:
 #    content-type: text/html
 #    注释的部分是Thymeleaf默认的配置，如有其它需求可以自行更改
 
+  # H2 DATABASE CONFIG
+#  datasource:
+#    schema: classpath:/db/schema-h2.sql
+#    data: classpath:/db/data-h2.sql
+#    url: jdbc:h2:mem:testdb
+#    username: sa
+#    password: sa
+#    platform: h2
+#    initialize: true
+#    continue-on-error: true
+#  h2:
+#    console:
+#      enabled: true
+#      path: /console
 
 #mybatis
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   typeAliasesPackage: com.baomidou.springboot.entity
   global-config:
-    id-type: 2
+    id-type: 0
     field-strategy: 2
     auto-set-db-type: true
     db-column-underline: true
