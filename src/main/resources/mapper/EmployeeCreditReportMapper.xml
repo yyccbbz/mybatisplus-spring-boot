@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baomidou.springboot.mapper.EmployeeCreditReportMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.baomidou.springboot.entity.EmployeeCreditReport">
+		<id column="id" property="id" />
+		<result column="today" property="today" />
+		<result column="period" property="period" />
+		<result column="per_application_num" property="perApplicationNum" />
+		<result column="day_application_num" property="dayApplicationNum" />
+		<result column="his_application_num" property="hisApplicationNum" />
+		<result column="per_hr_approval_num" property="perHrApprovalNum" />
+		<result column="day_hr_approval_num" property="dayHrApprovalNum" />
+		<result column="his_hr_approval_num" property="hisHrApprovalNum" />
+		<result column="cur_hr_unapproved_num" property="curHrUnapprovedNum" />
+		<result column="per_first_trial_num" property="perFirstTrialNum" />
+		<result column="day_first_trial_num" property="dayFirstTrialNum" />
+		<result column="his_first_trial_num" property="hisFirstTrialNum" />
+		<result column="cur_pending_first_trial_num" property="curPendingFirstTrialNum" />
+		<result column="per_review_num" property="perReviewNum" />
+		<result column="day_review_num" property="dayReviewNum" />
+		<result column="his_review_num" property="hisReviewNum" />
+		<result column="cur_pending_review_num" property="curPendingReviewNum" />
+		<result column="per_passes_num" property="perPassesNum" />
+		<result column="day_passes_num" property="dayPassesNum" />
+		<result column="his_passes_num" property="hisPassesNum" />
+		<result column="per_signed_num" property="perSignedNum" />
+		<result column="day_signed_num" property="daySignedNum" />
+		<result column="his_signed_num" property="hisSignedNum" />
+		<result column="per_success_loan_num" property="perSuccessLoanNum" />
+		<result column="day_success_loan_num" property="daySuccessLoanNum" />
+		<result column="his_success_loan_num" property="hisSuccessLoanNum" />
+		<result column="per_success_loan_amount" property="perSuccessLoanAmount" />
+		<result column="day_success_loan_amount" property="daySuccessLoanAmount" />
+		<result column="his_success_loan_amount" property="hisSuccessLoanAmount" />
+		<result column="per_failed_loan_num" property="perFailedLoanNum" />
+		<result column="day_failed_loan_num" property="dayFailedLoanNum" />
+		<result column="his_failed_loan_num" property="hisFailedLoanNum" />
+		<result column="per_failed_loan_amount" property="perFailedLoanAmount" />
+		<result column="day_failed_loan_amount" property="dayFailedLoanAmount" />
+		<result column="his_failed_loan_amount" property="hisFailedLoanAmount" />
+		<result column="cur_not_signed_num" property="curNotSignedNum" />
+		<result column="cur_not_signed_amount" property="curNotSignedAmount" />
+		<result column="cur_outstanding_loan_num" property="curOutstandingLoanNum" />
+		<result column="cur_loan_balance" property="curLoanBalance" />
+	</resultMap>
+
+</mapper>

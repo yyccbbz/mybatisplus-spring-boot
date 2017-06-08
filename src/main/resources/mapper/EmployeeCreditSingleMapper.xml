@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baomidou.springboot.mapper.EmployeeCreditSingleMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.baomidou.springboot.entity.EmployeeCreditSingle">
+		<id column="id" property="id" />
+		<result column="employee_name" property="employeeName" />
+		<result column="id_no" property="idNo" />
+		<result column="mobile_no" property="mobileNo" />
+		<result column="employee_code" property="employeeCode" />
+		<result column="gender" property="gender" />
+		<result column="age" property="age" />
+		<result column="entry_date" property="entryDate" />
+		<result column="departure_date" property="departureDate" />
+		<result column="if_vip" property="ifVip" />
+		<result column="service_length" property="serviceLength" />
+		<result column="company" property="company" />
+		<result column="inservice_status" property="inserviceStatus" />
+		<result column="special_list_type" property="specialListType" />
+		<result column="if_special_list" property="ifSpecialList" />
+		<result column="loan_application_no" property="loanApplicationNo" />
+		<result column="loan_application_date" property="loanApplicationDate" />
+		<result column="loan_status" property="loanStatus" />
+		<result column="loan_balance" property="loanBalance" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+
+</mapper>

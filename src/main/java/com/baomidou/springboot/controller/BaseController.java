@@ -3,8 +3,8 @@ package com.baomidou.springboot.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.framework.common.util.DateUtil;
 import com.baomidou.framework.controller.SuperController;
-import com.baomidou.framework.mail.MailHelper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.springboot.excel.ExcelContext;
 import com.baomidou.springboot.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -26,16 +26,10 @@ import java.util.Date;
 public class BaseController extends SuperController implements HandlerInterceptor {
 
 	@Autowired
-	protected MailHelper mailHelper;
-
-	@Autowired
 	protected IUserService userService;
 
-	/*@Autowired
-	private IPrivilegeService privilegeService;
-
 	@Autowired
-	protected ExcelContext excelContext;*/
+	protected ExcelContext excelContext;
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
