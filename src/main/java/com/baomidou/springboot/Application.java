@@ -36,8 +36,8 @@ public class Application {
 		app.run(args);
 //		SpringApplication.run(Application.class, args);
 		logger.info("PortalApplication is sussess!");
-		System.err.println("sample started 1. http://localhost:8888/user/page");
-		System.err.println("sample started 2. http://localhost:8888/hello");
+		System.err.println("sample started 1. http://localhost:8888/login.html");
+		System.err.println("sample started 2. http://localhost:8888/index.html");
 	}
 
 }
