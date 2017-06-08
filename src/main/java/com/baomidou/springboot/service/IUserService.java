@@ -14,5 +14,5 @@ public interface IUserService extends IService<User> {
 
 	boolean deleteAll();
 
-	public List<User> selectListBySQL();
+	List<User> selectListBySQL();
 }
