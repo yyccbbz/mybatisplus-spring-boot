@@ -71,7 +71,7 @@ public class AccountController extends SuperController {
             }
             model.addAttribute("errorMsg", errorMsg);
         }
-        return "/login";
+        return "/index";
     }
 
 

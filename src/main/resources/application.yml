@@ -8,6 +8,9 @@ spring:
     restart:
       exclude: static/**,public/**,templates/**
 #      enabled: false
+  output:
+    ansi:
+      enabled: detect
 
   #mysql
   datasource:
@@ -59,3 +62,6 @@ mybatis-plus:
 logging:
   level:
     com.baomidou.springboot: debug
+    root : warn
+  path: /home/springboot
+
