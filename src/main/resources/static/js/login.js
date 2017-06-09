@@ -24,30 +24,32 @@ $(function () {
 // 登录
 function login() {
     $.ajax({
-        // url: BASE_PATH + '/sso/login',
         url: '/account/login',
         type: 'POST',
         data: {
             username: $('#username').val(),
             password: $('#password').val(),
             rememberMe: $('#rememberMe').is(':checked'),
+            ctoken: $('#ctoken').val(),
             backurl: ""
         },
         beforeSend: function () {
 
         },
         success: function (json) {
-            if (json.code == 1) {
-                location.href = json.data;
-            } else {
-                alert(json.data);
-                if (10101 == json.code) {
-                    $('#username').focus();
-                }
-                if (10102 == json.code) {
-                    $('#password').focus();
-                }
-            }
+
+            console.log(json)
+            // if (json.code == 1) {
+            //     location.href = json.data;
+            // } else {
+            //     alert(json.data);
+            //     if (10101 == json.code) {
+            //         $('#username').focus();
+            //     }
+            //     if (10102 == json.code) {
+            //         $('#password').focus();
+            //     }
+            // }
         },
         error: function (error) {
             console.log(error);
