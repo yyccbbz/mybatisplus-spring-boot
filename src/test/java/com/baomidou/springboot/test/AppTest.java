@@ -1,7 +1,7 @@
 package com.baomidou.springboot.test;
 
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.springboot.entity.User;
+import com.baomidou.springboot.entity.TestUser;
 
 import java.util.Date;
 
@@ -18,9 +18,9 @@ public class AppTest {
 
     public static void main(String[] args) {
 
-        User u = new User();
+        TestUser u = new TestUser();
 
-        u.setId(3L);
+        u.setTestId(3L);
         u.setAge(30);
         u.setName("张三丰");
         u.setPhone("13688881114");
