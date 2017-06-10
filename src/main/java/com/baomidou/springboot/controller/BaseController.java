@@ -20,8 +20,8 @@ import java.util.Date;
  * 基础控制器
  * </p>
  * 
- * @author hubin
- * @Date 2016-04-13
+ * @author CuiCan
+ * @Date 2017-06-10
  */
 public class BaseController extends SuperController implements HandlerInterceptor {
 

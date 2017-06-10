@@ -37,7 +37,7 @@ public class AutoGeneratorHelper {
 		if (EnvUtil.isLinux()) {
 			gc.setOutputDir("/opt/springboot/");
 		} else {
-			gc.setOutputDir("E:\\Workspace\\IdeaProjects\\mybatisplus-spring-boot\\src\\test\\java\\generator");
+			gc.setOutputDir("E:\\generator");
 		}
 		gc.setFileOverride(true);
 		gc.setActiveRecord(false);// 开启 activeRecord 模式

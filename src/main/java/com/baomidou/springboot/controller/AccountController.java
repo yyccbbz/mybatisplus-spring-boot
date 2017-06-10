@@ -1,27 +1,22 @@
 package com.baomidou.springboot.controller;
 
 import com.baomidou.framework.controller.SuperController;
-import com.baomidou.kisso.SSOConfig;
 import com.baomidou.kisso.SSOHelper;
-import com.baomidou.kisso.SSOToken;
-import com.baomidou.kisso.common.encrypt.SaltEncoder;
 import com.baomidou.kisso.web.waf.request.WafRequestWrapper;
-import com.baomidou.springboot.entity.User;
 import com.baomidou.springboot.service.IUserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * <p>
  * 账户相关操作
  * </p>
  *
- * @author hubin
- * @Date 2016-04-13
+ * @author CuiCan
+ * @Date 2017-06-10
  */
 @Controller
 @RequestMapping("/account")

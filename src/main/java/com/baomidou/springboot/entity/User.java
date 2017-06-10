@@ -1,125 +1,137 @@
 package com.baomidou.springboot.entity;
 
-import java.io.Serializable;
+import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
-
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
+import java.io.Serializable;
 
 /**
+ * <p>
  * 用户表
+ * </p>
+ *
+ * @author CuiCan
+ * @since 2017-06-10
  */
-@SuppressWarnings("serial")
-public class User extends Model<User> {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
-     * 主键ID
+     * 主键
      */
-    @TableId("test_id")
-    private Long id;
-
+	@TableId(value="id", type= IdType.AUTO)
+	private Long id;
     /**
-     * 名称
+     * 登录名称
      */
-    private String name;
-
+	@TableField("login_name")
+	private String loginName;
     /**
-     * 年龄
+     * 用户姓名
      */
-    private Integer age;
+	@TableField("user_name")
+	private String userName;
+    /**
+     * 密码
+     */
+	private String password;
+    /**
+     * 邮箱
+     */
+	private String email;
+    /**
+     * 0、普通用户 1、管理员 2、超级管理员
+     */
+	@TableField("role_type")
+	private Integer roleType;
+    /**
+     * 0、正常 1、禁用
+     */
+	private Integer status;
+    /**
+     * 创建时间
+     */
+	@TableField("create_time")
+	private Date createTime;
+    /**
+     * 最后登录时间
+     */
+	@TableField("last_time")
+	private Date lastTime;
 
-    @TableField("test_type")
-    private Integer testType;
 
-    @TableField("test_date")
-    private Date testDate;
+	public Long getId() {
+		return id;
+	}
 
-    private Long role;
-    private String phone;
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public User() {
-    }
+	public String getLoginName() {
+		return loginName;
+	}
 
-    public User(Long id, String name, Integer age, Integer testType) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.testType = testType;
-    }
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
+	}
 
-    public User(String name, Integer age, Integer testType) {
-        this.name = name;
-        this.age = age;
-        this.testType = testType;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public Long getId() {
-        return this.id;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public String getName() {
-        return this.name;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public Integer getAge() {
-        return this.age;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+	public Integer getRoleType() {
+		return roleType;
+	}
 
-    public Integer getTestType() {
-        return this.testType;
-    }
+	public void setRoleType(Integer roleType) {
+		this.roleType = roleType;
+	}
 
-    public void setTestType(Integer testType) {
-        this.testType = testType;
-    }
+	public Integer getStatus() {
+		return status;
+	}
 
-    public Long getRole() {
-        return this.role;
-    }
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
-    public void setRole(Long role) {
-        this.role = role;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public String getPhone() {
-        return this.phone;
-    }
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public Date getLastTime() {
+		return lastTime;
+	}
 
-    public Date getTestDate() {
-        return testDate;
-    }
-
-    public void setTestDate(Date testDate) {
-        this.testDate = testDate;
-    }
-
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", name=" + name + ", age=" + age
-                + ", testType=" + testType + ", testDate="
-                + testDate + ", role=" + role + ", phone=" + phone + "]";
-    }
-
-    @Override
-    protected Serializable pkVal() {
-        return id;
-    }
+	public void setLastTime(Date lastTime) {
+		this.lastTime = lastTime;
+	}
 
 }

@@ -1,18 +1,16 @@
 package com.baomidou.springboot.service;
 
-import java.util.List;
-
-import com.baomidou.mybatisplus.service.IService;
 import com.baomidou.springboot.entity.User;
+import com.baomidou.mybatisplus.service.IService;
 
 /**
+ * <p>
+ * 用户表 服务类
+ * </p>
  *
- * User 表数据服务层接口
- *
+ * @author CuiCan
+ * @since 2017-06-10
  */
 public interface IUserService extends IService<User> {
-
-	boolean deleteAll();
-
-	List<User> selectListBySQL();
+	
 }
