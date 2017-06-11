@@ -6,7 +6,7 @@ server:
 spring:
   devtools:
     restart:
-      exclude: static/**,public/**,templates/**
+      exclude: static/**,templates/**
 #      enabled: false
   output:
     ansi:

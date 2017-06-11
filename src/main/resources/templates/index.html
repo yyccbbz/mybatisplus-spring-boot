@@ -1,17 +1,23 @@
 <!DOCTYPE HTML>
-<html lang="zh-cn">
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>员工贷查询系统</title>
 
-    <link href="plugins/fullPage/jquery.fullPage.css" rel="stylesheet"/>
-    <link href="plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
-    <link href="plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
-    <link href="plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
-    <link href="css/admin.css" rel="stylesheet"/>
+    <link th:href="@{../static/plugins/fullPage/jquery.fullPage.css}"
+          href="../static/plugins/fullPage/jquery.fullPage.css" rel="stylesheet"/>
+    <link th:href="@{../static/plugins/bootstrap-3.3.0/css/bootstrap.min.css}"
+          href="../static/plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link th:href="@{../static/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css}"
+          href="../static/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
+    <link th:href="@{../static/plugins/waves-0.7.5/waves.min.css}"
+          href="../static/plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
+    <link th:href="@{../static/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css}"
+          href="../static/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+    <link th:href="@{../static/css/admin.css}"
+          href="../static/css/admin.css" rel="stylesheet"/>
     <style>
         /** skins **/
         #zheng-upms-server #header {
@@ -23,7 +29,7 @@
         }
 
         #zheng-upms-server .s-profile > a {
-            background: url(images/zheng-upms.png) left top no-repeat;
+            background: url(../static/images/zheng-upms.png) left top no-repeat;
         }
 
         #zheng-cms-admin #header {
@@ -35,7 +41,7 @@
         }
 
         #zheng-cms-admin .s-profile > a {
-            background: url(images/zheng-cms.png) left top no-repeat;
+            background: url(../static/images/zheng-cms.png) left top no-repeat;
         }
 
         #zheng-pay-admin #header {
@@ -47,7 +53,7 @@
         }
 
         #zheng-pay-admin .s-profile > a {
-            background: url(images/zheng-pay.png) left top no-repeat;
+            background: url(../static/images/zheng-pay.png) left top no-repeat;
         }
 
         #zheng-ucenter-home #header {
@@ -59,7 +65,7 @@
         }
 
         #zheng-ucenter-home .s-profile > a {
-            background: url(images/zheng-ucenter.png) left top no-repeat;
+            background: url(../static/images/zheng-ucenter.png) left top no-repeat;
         }
 
         #zheng-oss-web #header {
@@ -71,7 +77,7 @@
         }
 
         #zheng-oss-web .s-profile > a {
-            background: url(images/zheng-oss.png) left top no-repeat;
+            background: url(../static/images/zheng-oss.png) left top no-repeat;
         }
 
         #test #header {
@@ -98,7 +104,7 @@
             </div>
         </li>
         <li id="logo" class="hidden-xs">
-            <a href="index.html"><img src="images/logo.png"/></a>
+            <a href="index.html"><img src="../static/images/logo.png"/></a>
             <span id="system_title">XXXX系统</span>
         </li>
         <li class="pull-right">
@@ -295,11 +301,11 @@
                 </p>
                 <p>
                     <b>姓 名</b>
-                    ：张恕征
+                    ：yyccbbz
                 </p>
                 <p>
                     <b>电子邮箱</b>
-                    ：469741414@qq.com
+                    ：253666335@qq.com
                 </p>
             </div>
         </div>
@@ -307,15 +313,25 @@
 </section>
 <footer id="footer"></footer>
 
-<script src="plugins/jquery.1.12.4.min.js"></script>
-<script src="plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
-<script src="plugins/waves-0.7.5/waves.min.js"></script>
-<script src="plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="plugins/BootstrapMenu.min.js"></script>
-<script src="plugins/device.min.js"></script>
-<script src="plugins/fullPage/jquery.fullPage.min.js"></script>
-<script src="plugins/fullPage/jquery.jdirk.min.js"></script>
-<script src="plugins/jquery.cookie.js"></script>
-<script src="js/admin.js"></script>
+<script src="../static/plugins/jquery.1.12.4.min.js"
+        th:src="@{../static/plugins/jquery.1.12.4.min.js}"></script>
+<script src="../static/plugins/bootstrap-3.3.0/js/bootstrap.min.js"
+        th:src="@{../static/plugins/bootstrap-3.3.0/js/bootstrap.min.js}"></script>
+<script src="../static/plugins/waves-0.7.5/waves.min.js"
+        th:src="@{../static/plugins/waves-0.7.5/waves.min.js}"></script>
+<script src="../static/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"
+        th:src="@{../static/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js}"></script>
+<script src="../static/plugins/BootstrapMenu.min.js"
+        th:src="@{../static/plugins/BootstrapMenu.min.js}"></script>
+<script src="../static/plugins/device.min.js"
+        th:src="@{../static/plugins/device.min.js}"></script>
+<script src="../static/plugins/fullPage/jquery.fullPage.min.js"
+        th:src="@{../static/plugins/fullPage/jquery.fullPage.min.js}"></script>
+<script src="../static/plugins/fullPage/jquery.jdirk.min.js"
+        th:src="@{../static/plugins/fullPage/jquery.jdirk.min.js}"></script>
+<script src="../static/plugins/jquery.cookie.js"
+        th:src="@{../static/plugins/jquery.cookie.js}"></script>
+<script src="../static/js/admin.js"
+        th:src="@{../static/js/admin.js}"></script>
 </body>
 </html>

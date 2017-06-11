@@ -1,18 +1,23 @@
 ﻿<!DOCTYPE HTML>
-<html lang="zh-cn">
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>通用增删改查</title>
 
-	<link href="plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
-	<link href="plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
-	<link href="plugins/bootstrap-table-1.11.0/bootstrap-table.min.css" rel="stylesheet"/>
-	<link href="plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
-	<link href="plugins/jquery-confirm/jquery-confirm.min.css" rel="stylesheet"/>
-
-	<link href="css/common.css" rel="stylesheet"/>
+	<link th:href="@{../static/plugins/bootstrap-3.3.0/css/bootstrap.min.css}"
+		  href="../static/plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+	<link th:href="@{../static/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css}"
+		  href="../static/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
+	<link th:href="@{../static/plugins/bootstrap-table-1.11.0/bootstrap-table.min.css}"
+		  href="../static/plugins/bootstrap-table-1.11.0/bootstrap-table.min.css" rel="stylesheet"/>
+	<link th:href="@{../static/plugins/waves-0.7.5/waves.min.css}"
+		  href="../static/plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
+	<link th:href="@{../static/plugins/jquery-confirm/jquery-confirm.min.css}"
+		  href="../static/plugins/jquery-confirm/jquery-confirm.min.css" rel="stylesheet"/>
+	<link th:href="@{../static/css/common.css}"
+		  href="../static/css/common.css" rel="stylesheet"/>
 </head>
 <body>
 <div id="main">
@@ -44,24 +49,30 @@
 		</div>
 	</form>
 </div>
-<script src="plugins/jquery.1.12.4.min.js"></script>
-<script src="plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
-<script src="plugins/bootstrap-table-1.11.0/bootstrap-table.min.js"></script>
-<script src="plugins/bootstrap-table-1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
-<script src="plugins/waves-0.7.5/waves.min.js"></script>
-<script src="plugins/jquery-confirm/jquery-confirm.min.js"></script>
-
-<script src="js/common.js"></script>
-<script>
+<script src="../static/plugins/jquery.1.12.4.min.js"
+		th:src="@{../static/plugins/jquery.1.12.4.min.js}"></script>
+<script src="../static/plugins/bootstrap-3.3.0/js/bootstrap.min.js"
+		th:src="@{../static/plugins/bootstrap-3.3.0/js/bootstrap.min.js}"></script>
+<script src="../static/plugins/bootstrap-table-1.11.0/bootstrap-table.min.js"
+		th:src="@{../static/plugins/bootstrap-table-1.11.0/bootstrap-table.min.js}"></script>
+<script src="../static/plugins/bootstrap-table-1.11.0/locale/bootstrap-table-zh-CN.min.js"
+		th:src="@{../static/plugins/bootstrap-table-1.11.0/locale/bootstrap-table-zh-CN.min.js}"></script>
+<script src="../static/plugins/waves-0.7.5/waves.min.js"
+		th:src="@{../static/plugins/waves-0.7.5/waves.min.js}"></script>
+<script src="../static/plugins/jquery-confirm/jquery-confirm.min.js"
+		th:src="@{../static/plugins/jquery-confirm/jquery-confirm.min.js}"></script>
+<script src="../static/js/common.js"
+		th:src="@{../static/js/common.js}"></script>
+<script th:inline="javascript">
 var $table = $('#table');
 $(function() {
-	$(document).on('focus', 'input[type="text"]', function() {
-		$(this).parent().find('label').addClass('active');
-	}).on('blur', 'input[type="text"]', function() {
-		if ($(this).val() == '') {
-			$(this).parent().find('label').removeClass('active');
-		}
-	});
+    $(document).on('focus', 'input[type="text"]', function () {
+        $(this).parent().find('label').addClass('active');
+    }).on('blur', 'input[type="text"]', function () {
+        if ($(this).val() == '') {
+            $(this).parent().find('label').removeClass('active');
+        }
+    });
 	// bootstrap table初始化
 	// http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/
 	$table.bootstrapTable({

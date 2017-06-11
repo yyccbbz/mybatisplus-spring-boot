@@ -131,7 +131,7 @@ public class BaseController extends SuperController implements HandlerIntercepto
 	 * @param request
 	 * @return
 	 */
-	/*public boolean checkLogin(HttpServletRequest request){
+	public boolean checkLogin(HttpServletRequest request){
 		Cookie[] cookies=request.getCookies();
 		for(Cookie cookie: cookies){
 			if(cookie.getName().equals(request.getSession().getId())){
@@ -141,6 +141,6 @@ public class BaseController extends SuperController implements HandlerIntercepto
 			}
 		}
 		return false;
-	}*/
+	}
 
 }
