@@ -1,5 +1,6 @@
 package com.baomidou.springboot.controller;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.springboot.common.utils.DateUtil;
 import com.baomidou.springboot.entity.EmployeeCreditReport;
 import com.baomidou.springboot.service.IEmployeeCreditReportService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +23,19 @@ import java.util.Random;
  * @since 2017-06-08
  */
 @Controller
-@RequestMapping("/employeeCreditReport")
+@RequestMapping("/dailyList")
 public class EmployeeCreditReportController extends BaseController {
 
     @Autowired
     private IEmployeeCreditReportService employeeCreditReportService;
 
-    @GetMapping("dailyList")
-    public String dailyList(){
-        return "dailyList";
+
+    @ResponseBody
+    @RequestMapping("getList")
+    public List<EmployeeCreditReport> getList(){
+        Page<EmployeeCreditReport> page = getPage();
+        Page<EmployeeCreditReport> list = employeeCreditReportService.selectPage(page, null);
+        return employeeCreditReportService.selectList(null);
     }
 
     /**
