@@ -12,8 +12,9 @@ spring:
     ansi:
       enabled: detect
 
-  #mysql
+  #mysql+连接池
   datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://116.62.134.242:3306/springboot?characterEncoding=utf8&useSSL=false
     username: springboot
     password: springboot
