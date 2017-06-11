@@ -119,6 +119,36 @@ public class EmployeeCreditSingle implements Serializable {
 	private Date createTime;
 
 
+	public EmployeeCreditSingle() {
+	}
+
+	public EmployeeCreditSingle(Long id, String employeeName, String idNo, String mobileNo, String employeeCode,
+								String gender, Integer age, Date entryDate, Date departureDate, String ifVip,
+								Double serviceLength, String company, String inserviceStatus, String specialListType,
+								String ifSpecialList, String loanApplicationNo, Date loanApplicationDate,
+								String loanStatus, Double loanBalance, Date createTime) {
+		this.id = id;
+		this.employeeName = employeeName;
+		this.idNo = idNo;
+		this.mobileNo = mobileNo;
+		this.employeeCode = employeeCode;
+		this.gender = gender;
+		this.age = age;
+		this.entryDate = entryDate;
+		this.departureDate = departureDate;
+		this.ifVip = ifVip;
+		this.serviceLength = serviceLength;
+		this.company = company;
+		this.inserviceStatus = inserviceStatus;
+		this.specialListType = specialListType;
+		this.ifSpecialList = ifSpecialList;
+		this.loanApplicationNo = loanApplicationNo;
+		this.loanApplicationDate = loanApplicationDate;
+		this.loanStatus = loanStatus;
+		this.loanBalance = loanBalance;
+		this.createTime = createTime;
+	}
+
 	public Long getId() {
 		return id;
 	}

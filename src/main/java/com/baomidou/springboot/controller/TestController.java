@@ -2,9 +2,8 @@ package com.baomidou.springboot.controller;
 
 import com.baomidou.springboot.entity.UserHLJ;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -12,15 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.ui.Model;
 
 /**
  * Created by huanglijun on 2017/6/10.
  */
 @RequestMapping("/test")
 @Controller
-public class TestController extends TestBaseController{
-    Map<String,String> map = new HashMap<String,String>();
+public class TestController extends BaseController{
+    /*Map<String,String> map = new HashMap<String,String>();
 
 
     @RequestMapping(value = "/1")
@@ -55,6 +53,6 @@ public class TestController extends TestBaseController{
             return "success";
         }
         return "fail";
-    }
+    }*/
 
 }

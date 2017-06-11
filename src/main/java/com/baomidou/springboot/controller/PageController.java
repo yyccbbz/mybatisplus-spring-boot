@@ -16,10 +16,17 @@ import java.util.Map;
 @Controller
 public class PageController {
 
+
+    @GetMapping(value = "/login")
+    public String login() {
+        return "login";
+    }
+
     @GetMapping(value = "/hello")
     public String helloGet(Map<String, Object> map) {
         map.put("name", "HowieLi");
         return "hello";
     }
+
 
 }

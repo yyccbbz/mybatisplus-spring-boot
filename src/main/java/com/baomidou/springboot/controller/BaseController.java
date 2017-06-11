@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
@@ -124,5 +125,22 @@ public class BaseController extends SuperController implements HandlerIntercepto
 		}
 		return file.getPath();
 	}
+
+	/**
+	 * 检查是否登录
+	 * @param request
+	 * @return
+	 */
+	/*public boolean checkLogin(HttpServletRequest request){
+		Cookie[] cookies=request.getCookies();
+		for(Cookie cookie: cookies){
+			if(cookie.getName().equals(request.getSession().getId())){
+				Object object = request.getSession().getAttribute(cookie.getValue());
+				if (object != null)
+					return true;
+			}
+		}
+		return false;
+	}*/
 
 }

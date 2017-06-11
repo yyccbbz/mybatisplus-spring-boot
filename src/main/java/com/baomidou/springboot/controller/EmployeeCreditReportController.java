@@ -1,7 +1,16 @@
 package com.baomidou.springboot.controller;
 
+import com.baomidou.springboot.common.utils.DateUtil;
+import com.baomidou.springboot.entity.EmployeeCreditReport;
+import com.baomidou.springboot.service.IEmployeeCreditReportService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 /**
  * <p>
@@ -12,7 +21,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 2017-06-08
  */
 @Controller
-@RequestMapping("/springboot/employeeCreditReport")
-public class EmployeeCreditReportController {
-	
+@RequestMapping("/employeeCreditReport")
+public class EmployeeCreditReportController extends BaseController {
+
+    @Autowired
+    private IEmployeeCreditReportService employeeCreditReportService;
+
+    /**
+     * 添加测试数据
+     * @return
+     */
+    @GetMapping("addTestData")
+    public String addTestData() {
+
+        List<EmployeeCreditReport> list = new ArrayList<>();
+        for (int i = 1; i <= 100; i++) {
+            EmployeeCreditReport ecr = new EmployeeCreditReport(
+                    (long) i, DateUtil.randomDate("2017-01-01", "2017-05-01"), "[" + i + "," + (i + 1) + ")",
+                    i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i,
+                    new Random().nextDouble(), new Random().nextDouble(), new Random().nextDouble(),
+                    i, i, i, new Random().nextDouble(), new Random().nextDouble(), new Random().nextDouble(),
+                    i, new Random().nextDouble(), i, new Random().nextDouble()
+            );
+
+            list.add(ecr);
+        }
+        Boolean b = employeeCreditReportService.insertBatch(list);
+        return b.toString();
+    }
+
 }
