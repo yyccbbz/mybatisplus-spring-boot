@@ -1,12 +1,15 @@
 package com.baomidou.springboot.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.springboot.common.AjaxResult;
 import com.baomidou.springboot.entity.User;
 import com.baomidou.springboot.service.IUserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -20,20 +23,19 @@ public class LoginController extends BaseController {
     @Autowired
     private IUserService userService;
 
-    @RequestMapping(value = {"/", "/login", "/home"})
-    public String toPage(){
-        return "login";
-    }
+    @ResponseBody
+    @RequestMapping("home")
+    public AjaxResult login(HttpServletRequest request, HttpServletResponse response) {
 
-    //localhost:8080/test/login?username=test&password=123
-    @RequestMapping("sign_in")
-    public String login(HttpServletRequest request, HttpServletResponse response) {
+        AjaxResult ajaxResult = new AjaxResult();
 
         String loginname = request.getParameter("loginname");
         String password = request.getParameter("password");
+        String rememberMe = request.getParameter("rememberMe");
 
         System.err.println("loginname = " + loginname);
         System.err.println("password = " + password);
+        System.err.println("rememberMe = " + rememberMe);
 
         if (StringUtils.isNotEmpty(loginname) && StringUtils.isNotEmpty(password)) {
             User u = new User();
@@ -47,11 +49,13 @@ public class LoginController extends BaseController {
                 //创建session 保存两个小时
                 session.setAttribute("hi", selectOne);
                 session.setMaxInactiveInterval(2 * 3);
-                return "index";
+
+                ajaxResult.setCode(1).setMsg("登录成功").setObj("index.html");
+                return ajaxResult;
             }
         }
-
-        return "index";
+        ajaxResult.setCode(0).setMsg("用户名或密码错误").setObj("login");
+        return ajaxResult;
     }
 
 }

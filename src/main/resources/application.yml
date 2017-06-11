@@ -4,6 +4,9 @@ server:
 
 #spring
 spring:
+#  resources:
+#    static-locations: static/**
+
   devtools:
     restart:
       exclude: static/**,templates/**

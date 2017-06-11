@@ -27,6 +27,11 @@ public class EmployeeCreditReportController extends BaseController {
     @Autowired
     private IEmployeeCreditReportService employeeCreditReportService;
 
+    @GetMapping("dailyList")
+    public String dailyList(){
+        return "dailyList";
+    }
+
     /**
      * 添加测试数据
      * @return

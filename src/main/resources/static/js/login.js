@@ -15,7 +15,7 @@ $(function () {
         login();
     });
     // 回车事件
-    $('#username, #password').keypress(function (event) {
+    $('#loginname, #password').keypress(function (event) {
         if (13 == event.keyCode) {
             login();
         }
@@ -24,32 +24,33 @@ $(function () {
 // 登录
 function login() {
     $.ajax({
-        url: '/account/login',
+        url: '/home',
         type: 'POST',
         data: {
-            username: $('#username').val(),
+            loginname: $('#loginname').val(),
             password: $('#password').val(),
             rememberMe: $('#rememberMe').is(':checked'),
-            ctoken: $('#ctoken').val(),
             backurl: ""
         },
         beforeSend: function () {
 
         },
-        success: function (json) {
-
-            console.log(json)
-            // if (json.code == 1) {
-            //     location.href = json.data;
-            // } else {
-            //     alert(json.data);
-            //     if (10101 == json.code) {
-            //         $('#username').focus();
-            //     }
-            //     if (10102 == json.code) {
-            //         $('#password').focus();
-            //     }
-            // }
+        success: function (data) {
+            console.log(data)
+            /*ajaxResult.setCode(1).setMsg("登录成功").setObj("index");*/
+            if (data.code == 1) {
+                //TODO 添加缓存
+                location.href = data.obj;
+                // localStorage.setItem("user","123");
+            } else {
+                alert(data.msg);
+                if (0 == data.code) {
+                    $('#loginname').focus();
+                }
+                /*if (10102 == data.code) {
+                    $('#password').focus();
+                }*/
+            }
         },
         error: function (error) {
             console.log(error);
