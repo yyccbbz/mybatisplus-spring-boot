@@ -13,7 +13,7 @@ spring:
 #      enabled: false
   output:
     ansi:
-      enabled: detect
+      enabled: always
 
   #mysql+连接池
   datasource:
@@ -24,8 +24,8 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 
   #thymeleaf
-#  thymeleaf:
-#    cache: false
+  thymeleaf:
+    cache: false
 #    prefix: classpath:/templates/
 #    suffix: .html
 #    mode: HTML5

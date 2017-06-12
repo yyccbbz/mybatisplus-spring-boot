@@ -27,15 +27,16 @@ public class SpringMVCConfig extends WebMvcConfigurerAdapter {
     private ApplicationContext context;
 
     //--------------Kisso start--------------------------
-    @Bean(initMethod="initKisso")
-    public WebKissoConfigurer kissoInit(){
+    @Bean(initMethod = "initKisso")
+    public WebKissoConfigurer kissoInit() {
         WebKissoConfigurer webKissoConfigurer = new WebKissoConfigurer();
         webKissoConfigurer.setSsoPropPath("properties/sso.properties");
         return webKissoConfigurer;
     }
+
     @Bean
-    public SSOPermissionInterceptor getSSOPermissionInterceptor(SSOAuthorization authorization){
-        SSOPermissionInterceptor ssoPermissionInterceptor =new  SSOPermissionInterceptor();
+    public SSOPermissionInterceptor getSSOPermissionInterceptor(SSOAuthorization authorization) {
+        SSOPermissionInterceptor ssoPermissionInterceptor = new SSOPermissionInterceptor();
         ssoPermissionInterceptor.setIllegalUrl("http://127.0.0.1:8888/test/permission/illegalAccess.html");
         ssoPermissionInterceptor.setAuthorization(authorization);
         return ssoPermissionInterceptor;
@@ -50,6 +51,7 @@ public class SpringMVCConfig extends WebMvcConfigurerAdapter {
         registry.addInterceptor(new SSOSpringInterceptor()).addPathPatterns("/**");
         registry.addInterceptor(context.getBean(SSOPermissionInterceptor.class)).addPathPatterns("/test/permission/**");
     }
+
     /**
      * 静态资源过滤
      */

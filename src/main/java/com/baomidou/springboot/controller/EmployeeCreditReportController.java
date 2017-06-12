@@ -1,5 +1,7 @@
 package com.baomidou.springboot.controller;
 
+import com.baomidou.kisso.annotation.Action;
+import com.baomidou.kisso.annotation.Login;
 import com.baomidou.springboot.common.utils.DateUtil;
 import com.baomidou.springboot.entity.EmployeeCreditReport;
 import com.baomidou.springboot.service.IEmployeeCreditReportService;
@@ -29,6 +31,7 @@ public class EmployeeCreditReportController extends BaseController {
     private IEmployeeCreditReportService employeeCreditReportService;
 
 
+    @Login(action = Action.Skip)
     @ResponseBody
     @RequestMapping("getList")
     public List<EmployeeCreditReport> getList(){
@@ -39,6 +42,7 @@ public class EmployeeCreditReportController extends BaseController {
      * 添加测试数据
      * @return
      */
+    @Login(action = Action.Skip)
     @GetMapping("addTestData")
     public String addTestData() {
 

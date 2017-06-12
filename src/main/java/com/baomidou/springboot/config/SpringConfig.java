@@ -15,7 +15,6 @@ import org.springframework.context.annotation.PropertySource;
  * @Description:
  */
 @Configuration
-// 通过该注解来表明该类是一个Spring的配置，相当于一个xml文件
 @ComponentScan(basePackages = "com.baomidou.springboot.config")
 // 配置扫描包
 @PropertySource(value = { "classpath:jdbc.properties" }, ignoreResourceNotFound = true)
