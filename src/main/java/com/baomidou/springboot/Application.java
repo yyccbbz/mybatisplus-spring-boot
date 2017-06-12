@@ -2,18 +2,25 @@ package com.baomidou.springboot;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.context.ApplicationContext;
 
 /**
  * mybatis-plus Spring Boot 测试 Demo<br>
  * 文档：http://mp.baomidou.com<br>
  */
 @SpringBootApplication
-public class Application {
+public class Application extends SpringBootServletInitializer {
 
 	protected final static Logger logger = LoggerFactory.getLogger(Application.class);
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(Application.class);
+	}
 
 	/**
 	 * <p>
@@ -31,13 +38,13 @@ public class Application {
 	 * </p>
 	 */
 	public static void main(String[] args) {
-		SpringApplication app = new SpringApplication(Application.class);
+//		SpringApplication app = new SpringApplication(Application.class);
 //		app.setBannerMode(Banner.Mode.OFF);
-		app.run(args);
-//		SpringApplication.run(Application.class, args);
+//		app.run(args);
+		ApplicationContext ctx = SpringApplication.run(Application.class, args);
 		logger.info("PortalApplication is sussess!");
-		System.err.println("sample started 1. http://localhost:8888/login.html");
-		System.err.println("sample started 2. http://localhost:8888/index.html");
+		System.err.println("sample started 1. http://127.0.0.1:8888/login.html");
+		System.err.println("sample started 2. http://127.0.0.1:8888/index.html");
 	}
 
 }

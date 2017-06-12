@@ -67,6 +67,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
+			<scope>true</scope>
 		</dependency>
 
 		<!-- db config -->
@@ -125,7 +126,7 @@
 			<version>${swagger2.version}</version>
 		</dependency>
 
-		<dependency>
+		<!--<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>spring-wind</artifactId>
 			<version>1.1.5</version>
@@ -139,7 +140,7 @@
 					<artifactId>mybatis-plus</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency>-->
 
 		<!-- commons -->
 		<dependency>
@@ -197,11 +198,11 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.5</version>
 		</dependency>-->
-		<!--<dependency>
+		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>kisso</artifactId>
 			<version>3.6.13</version>
-		</dependency>-->
+		</dependency>
 
 	</dependencies>
 
@@ -213,6 +214,14 @@
 				<configuration>
 					<fork>true</fork>
 				</configuration>
+				<dependencies>
+					<!-- spring热部署-->
+					<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>springloaded</artifactId>
+						<version>1.2.6.RELEASE</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

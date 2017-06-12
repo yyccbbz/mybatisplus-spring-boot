@@ -68,6 +68,11 @@ window.onresize = function () {
 
 // ========== 选项卡操作 ==========
 $(function () {
+
+
+
+
+
     // 选项卡点击
     $(document).on('click', '.content_tab li', function () {
         // 切换选项卡
@@ -185,6 +190,7 @@ $(function () {
         }
     });
 });
+
 // 选项卡对象
 var Tab = {
     addTab: function (title, url) {
@@ -263,3 +269,7 @@ function fullPage() {
         alert("当前浏览器不支持全屏 API，请更换至最新的 Chrome/Firefox/Safari 浏览器或通过 F11 快捷键进行操作。");
     }
 }
+
+
+/**页面初始化完成，模拟点击事件*/
+$("#toHome").trigger("click");
