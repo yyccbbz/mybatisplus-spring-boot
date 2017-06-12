@@ -7,9 +7,9 @@ spring:
 #  resources:
 #    static-locations: static/**
 
-  devtools:
-    restart:
-      exclude: static/**,templates/**
+#  devtools:
+#    restart:
+#      exclude: static/**,templates/**
 #      enabled: false
   output:
     ansi:

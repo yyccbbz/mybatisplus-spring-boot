@@ -7,19 +7,21 @@
 	<title>通用增删改查</title>
 
 	<link href="plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
-	<link href="plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
 	<link href="plugins/bootstrap-table-1.11.0/bootstrap-table.min.css" rel="stylesheet"/>
+	<link href="plugins/bootstrap-table-1.11.0/extensions/fixed-column/bootstrap-table-fixed-columns.css" rel="stylesheet"/>
+	<link href="plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
 	<link href="plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
 	<link href="plugins/jquery-confirm/jquery-confirm.min.css" rel="stylesheet"/>
 
 	<link href="css/common.css" rel="stylesheet"/>
 </head>
 <body>
+
 <div id="main">
 	<div id="toolbar">
-		<a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增用户</a>
+		<!--<a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增用户</a>
 		<a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-edit"></i> 编辑用户</a>
-		<a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-close"></i> 删除用户</a>
+		<a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-close"></i> 删除用户</a>-->
 	</div>
 	<table id="table"></table>
 </div>
@@ -48,6 +50,7 @@
 <script src="plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
 <script src="plugins/bootstrap-table-1.11.0/bootstrap-table.min.js"></script>
 <script src="plugins/bootstrap-table-1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="plugins/bootstrap-table-1.11.0/extensions/fixed-column/bootstrap-table-fixed-columns.js"></script>
 <script src="plugins/waves-0.7.5/waves.min.js"></script>
 <script src="plugins/jquery-confirm/jquery-confirm.min.js"></script>
 
@@ -68,15 +71,15 @@ $(function() {
 		url: 'dailyList/getList',
 		height: getHeight(),
 		striped: true,
-		search: true,
+//		search: true,
 		searchOnEnterKey: true,
 		showRefresh: true,
-		showToggle: true,
-		showColumns: true,
+//		showToggle: true,
+//		showColumns: true,
 		minimumCountColumns: 2,
 		showPaginationSwitch: true,
 		clickToSelect: true,
-		detailView: true,
+//		detailView: true,
 		detailFormatter: 'detailFormatter',
 		pagination: true,
 		paginationLoop: false,
@@ -92,10 +95,13 @@ $(function() {
 		idField: 'systemId',
 		maintainSelected: true,
 		toolbar: '#toolbar',
+        showHeader: true,
+        fixedColumns: true,
+        fixedNumber: 2,
 		columns: [
-            {field: 'id', title: '主键', sortable: true, align: 'center', valign: "middle"},
+            {field: 'id', title: '编号', sortable: true, align: 'center', valign: "middle"},
             {field: 'today', title: '日期', sortable: true, align: 'center', valign: "middle"},
-            {field: 'period', title: '时间段(小时）格式：[0,1)', sortable: true, align: 'center', valign: "middle"},
+            {field: 'period', title: '时间段', sortable: true, align: 'center', valign: "middle"},
             {field: 'perApplicationNum', title: '当前时间段内申请笔数', sortable: true, align: 'center', valign: "middle"},
             {field: 'dayApplicationNum', title: '当日申请笔数', sortable: true, align: 'center', valign: "middle"},
             {field: 'hisApplicationNum', title: '历史申请笔数', sortable: true, align: 'center', valign: "middle"},
@@ -132,7 +138,7 @@ $(function() {
             {field: 'curNotSignedNum', title: '当前已审未签笔数', sortable: true, align: 'center', valign: "middle"},
             {field: 'curNotSignedAmount', title: '当前已审未签金额', sortable: true, align: 'center', valign: "middle"},
             {field: 'curOutstandingLoanNum', title: '当前未结清贷款笔数', sortable: true, align: 'center', valign: "middle"},
-            {field: 'curLoanBalance', title: '当前贷款余额（剩余未还本金）', sortable: true, align: 'center', valign: "middle"},
+            {field: 'curLoanBalance', title: '当前贷款余额', sortable: true, align: 'center', valign: "middle"},
 //			{field: 'action', title: '操作', align: 'center', halign: 'center', formatter: 'actionFormatter', events: 'actionEvents', clickToSelect: false}
 		]
 	}).on('all.bs.table', function (e, name, args) {

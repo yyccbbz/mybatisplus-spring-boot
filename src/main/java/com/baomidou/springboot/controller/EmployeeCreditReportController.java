@@ -33,8 +33,6 @@ public class EmployeeCreditReportController extends BaseController {
     @ResponseBody
     @RequestMapping("getList")
     public List<EmployeeCreditReport> getList(){
-        Page<EmployeeCreditReport> page = getPage();
-        Page<EmployeeCreditReport> list = employeeCreditReportService.selectPage(page, null);
         return employeeCreditReportService.selectList(null);
     }
 
