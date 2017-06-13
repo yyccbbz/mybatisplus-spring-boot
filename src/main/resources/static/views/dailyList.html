@@ -51,12 +51,18 @@
 <script src="../plugins/bootstrap-table-1.11.0/bootstrap-table.min.js"></script>
 <script src="../plugins/bootstrap-table-1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
 <script src="../plugins/bootstrap-table-1.11.0/extensions/fixed-column/bootstrap-table-fixed-columns.js"></script>
+<script src="../plugins/bootstrap-table-1.11.0/extensions/export/bootstrap-table-export.js"></script>
 <script src="../plugins/waves-0.7.5/waves.min.js"></script>
 <script src="../plugins/jquery-confirm/jquery-confirm.min.js"></script>
-
+<script src="../js/tableExport.js"></script>
 <script src="../js/common.js"></script>
+
 <script>
-var $table = $('#table');
+var $table = $('#table'),
+//	$remove = $('#remove'),
+    selections = [];
+
+
 $(function() {
 	$(document).on('focus', 'input[type="text"]', function() {
 		$(this).parent().find('label').addClass('active');
@@ -98,6 +104,7 @@ $(function() {
         showHeader: true,
         fixedColumns: true,
         fixedNumber: 2,
+        showExport: true,
 		columns: [
             {field: 'id', title: '编号', sortable: true, align: 'center', valign: "middle"},
             {field: 'today', title: '日期', sortable: true, align: 'center', valign: "middle"},
