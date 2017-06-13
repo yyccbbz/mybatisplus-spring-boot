@@ -45,7 +45,7 @@ $(function () {
     // 显示cookie菜单
     var systemid = $.cookie('zheng-upms-systemid') || 1;
     var systemname = $.cookie('zheng-upms-systemname') || 'zheng-upms-server';
-    var systemtitle = $.cookie('zheng-upms-systemtitle') || '员工贷报表';
+    var systemtitle = $.cookie('zheng-upms-systemtitle') || '员工贷报表系统';
     $('.system_menus').hide(0, function () {
         $('.system_' + systemid).show();
     });
@@ -68,11 +68,6 @@ window.onresize = function () {
 
 // ========== 选项卡操作 ==========
 $(function () {
-
-
-
-
-
     // 选项卡点击
     $(document).on('click', '.content_tab li', function () {
         // 切换选项卡
