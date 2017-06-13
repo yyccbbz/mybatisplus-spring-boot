@@ -24,7 +24,7 @@ $(function () {
 // 登录
 function login() {
     $.ajax({
-        url: '/home',
+        url: '/loginpost',
         type: 'POST',
         data: {
             loginname: $('#loginname').val(),
@@ -37,10 +37,9 @@ function login() {
         },
         success: function (data) {
             console.log(data)
-            /*ajaxResult.setCode(1).setMsg("登录成功").setObj("index");*/
             if (data.code == 1) {
-                //TODO 添加缓存
-                location.href = data.obj;
+                console.log(data.obj);
+                location.href = data.msg;
                 // localStorage.setItem("user","123");
             } else {
                 alert(data.msg);

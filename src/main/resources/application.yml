@@ -1,19 +1,18 @@
 #app
 server:
   port: 8888
+  servlet-path: /
+#  server.session.persistent=false # Persist session data between restarts.
+#  server.session.store-dir= # Directory used to store session data.
+#  server.session.timeout= # Session timeout in seconds.
 
-#spring
+### spring
 spring:
 #  resources:
 #    static-locations: static/**
-
-#  devtools:
-#    restart:
-#      exclude: static/**,templates/**
-#      enabled: false
   output:
     ansi:
-      enabled: always
+      enabled: detect
 
   #mysql+连接池
   datasource:
@@ -23,32 +22,8 @@ spring:
     password: springboot
     driver-class-name: com.mysql.jdbc.Driver
 
-  #thymeleaf
-  thymeleaf:
-    cache: false
-#    prefix: classpath:/templates/
-#    suffix: .html
-#    mode: HTML5
-#    encoding: UTF-8
-#    content-type: text/html
-#    注释的部分是Thymeleaf默认的配置，如有其它需求可以自行更改
 
-  # H2 DATABASE CONFIG
-#  datasource:
-#    schema: classpath:/db/schema-h2.sql
-#    data: classpath:/db/data-h2.sql
-#    url: jdbc:h2:mem:testdb
-#    username: sa
-#    password: sa
-#    platform: h2
-#    initialize: true
-#    continue-on-error: true
-#  h2:
-#    console:
-#      enabled: true
-#      path: /console
-
-#mybatis
+### mybatis
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   typeAliasesPackage: com.baomidou.springboot.entity
@@ -66,6 +41,4 @@ mybatis-plus:
 logging:
   level:
     com.baomidou.springboot: debug
-    root : warn
-  path: /home/springboot
-
+    root : info

@@ -1,40 +1,71 @@
-//主键 							@TableId(value = "id", type = IdType.AUTO) private Long id;
-//日期 							private Date today;
-//时间段(小时）格式：[0,1) 		private String period;
-//当前时间段内申请笔数 			@TableField("per_application_num") private Integer perApplicationNum;
-//当日申请笔数 					@TableField("day_application_num") private Integer dayApplicationNum;
-//历史申请笔数 					@TableField("his_application_num") private Integer hisApplicationNum;
-//当前时间段内HR审批完成笔数 	@TableField("per_hr_approval_num") private Integer perHrApprovalNum;
-//当日HR审批完成笔数 			@TableField("day_hr_approval_num") private Integer dayHrApprovalNum;
-//历史HR审批完成笔数 			@TableField("his_hr_approval_num") private Integer hisHrApprovalNum;
-//当前HR剩余未审批笔数 			@TableField("cur_hr_unapproved_num") private Integer curHrUnapprovedNum;
-//当前时间段内初审完成笔数 		@TableField("per_first_trial_num") private Integer perFirstTrialNum;
-//当日初审完成笔数 				@TableField("day_first_trial_num") private Integer dayFirstTrialNum;
-//历史初审完成笔数 				@TableField("his_first_trial_num") private Integer hisFirstTrialNum;
-//当前剩余初审待审笔数 			@TableField("cur_pending_first_trial_num") private Integer curPendingFirstTrialNum;
-//当前时间段内复审完成笔数 		@TableField("per_review_num") private Integer perReviewNum;
-//当日复审完成笔数 				@TableField("day_review_num") private Integer dayReviewNum;
-//历史复审完成笔数 				@TableField("his_review_num") private Integer hisReviewNum;
-//当前复审待审笔数 				@TableField("cur_pending_review_num") private Integer curPendingReviewNum;
-//当前时间段内审批通过笔数 		@TableField("per_passes_num") private Integer perPassesNum;
-//当日审批通过笔数 				@TableField("day_passes_num") private Integer dayPassesNum;
-//历史审批通过笔数 				@TableField("his_passes_num") private Integer hisPassesNum;
-//当前时间段内签约笔数 			@TableField("per_signed_num") private Integer perSignedNum;
-//当日签约笔数 					@TableField("day_signed_num") private Integer daySignedNum;
-//历史签约笔数 					@TableField("his_signed_num") private Integer hisSignedNum;
-//当前时间段内放款成功笔数 		@TableField("per_success_loan_num") private Integer perSuccessLoanNum;
-//当日放款成功笔数 				@TableField("day_success_loan_num") private Integer daySuccessLoanNum;
-//历史放款成功笔数 				@TableField("his_success_loan_num") private Integer hisSuccessLoanNum;
-//当前时间段内放款成功金额 		@TableField("per_success_loan_amount") private Double perSuccessLoanAmount;
-//当日放款成功金额 				@TableField("day_success_loan_amount") private Double daySuccessLoanAmount;
-//历史放款成功金额 				@TableField("his_success_loan_amount") private Double hisSuccessLoanAmount;
-//当前时间段内放款失败笔数 		@TableField("per_failed_loan_num") private Integer perFailedLoanNum;
-//当日放款失败笔数 				@TableField("day_failed_loan_num") private Integer dayFailedLoanNum;
-//历史放款失败笔数 				@TableField("his_failed_loan_num") private Integer hisFailedLoanNum;
-//当前时间段内放款失败金额 		@TableField("per_failed_loan_amount") private Double perFailedLoanAmount;
-//当日放款失败金额 				@TableField("day_failed_loan_amount") private Double dayFailedLoanAmount;
-//历史放款失败金额 				@TableField("his_failed_loan_amount") private Double hisFailedLoanAmount;
-//当前已审未签笔数 				@TableField("cur_not_signed_num") private Integer curNotSignedNum;
-//当前已审未签金额 				@TableField("cur_not_signed_amount") private Double curNotSignedAmount;
-//当前未结清贷款笔数 			@TableField("cur_outstanding_loan_num") private Integer curOutstandingLoanNum;
-//当前贷款余额（剩余未还本金）	@TableField("cur_loan_balance") private Double curLoanBalance;
+#app
+server:
+  port: 8888
+
+#spring
+spring:
+#  resources:
+#    static-locations: static/**
+
+#  devtools:
+#    restart:
+#      exclude: static/**,templates/**
+#      enabled: false
+  output:
+    ansi:
+      enabled: always
+
+  #mysql+连接池
+  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://116.62.134.242:3306/springboot?characterEncoding=utf8&useSSL=false
+    username: springboot
+    password: springboot
+    driver-class-name: com.mysql.jdbc.Driver
+
+  #thymeleaf
+#  thymeleaf:
+#    cache: false
+#    prefix: classpath:/templates/
+#    suffix: .html
+#    mode: HTML5
+#    encoding: UTF-8
+#    content-type: text/html
+#    注释的部分是Thymeleaf默认的配置，如有其它需求可以自行更改
+
+  # H2 DATABASE CONFIG
+#  datasource:
+#    schema: classpath:/db/schema-h2.sql
+#    data: classpath:/db/data-h2.sql
+#    url: jdbc:h2:mem:testdb
+#    username: sa
+#    password: sa
+#    platform: h2
+#    initialize: true
+#    continue-on-error: true
+#  h2:
+#    console:
+#      enabled: true
+#      path: /console
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  typeAliasesPackage: com.baomidou.springboot.entity
+  global-config:
+    id-type: 0
+    field-strategy: 2
+    auto-set-db-type: true
+    db-column-underline: true
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+#logging
+logging:
+  level:
+    com.baomidou.springboot: debug
+    root : warn
+  path: /home/springboot
+

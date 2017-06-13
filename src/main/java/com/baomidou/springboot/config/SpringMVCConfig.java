@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
  * Created with IntelliJ IDEA.
@@ -55,11 +56,23 @@ public class SpringMVCConfig extends WebMvcConfigurerAdapter {
     /**
      * 静态资源过滤
      */
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
-    }
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+//    }
 
+    /**
+     * 自定义视图解析器
+     *
+     * @return viewResolver
+     */
+    @Bean
+    public InternalResourceViewResolver viewResolver(){
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setPrefix("/static/views/");
+        viewResolver.setSuffix(".html");
+        return viewResolver;
+    }
 
     // 自定义消息转化器
     /*@Override
