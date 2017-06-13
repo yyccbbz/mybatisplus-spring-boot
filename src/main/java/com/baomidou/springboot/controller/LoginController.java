@@ -26,15 +26,15 @@ public class LoginController extends BaseController {
     /**
      * 登录 （注解跳过权限验证）
      */
-    @Login(action = Action.Skip)
-    @RequestMapping("/login")
+/*    @Login(action = Action.Skip)
+    @RequestMapping(value = {"/","/login"})
     public String login() {
         SSOToken st = SSOHelper.getToken(request);
         if (st != null) {
-            return redirectTo("/home.html");
+            return redirectTo("/home");
         }
-        return "/index.html";
-    }
+        return "index";
+    }*/
 
     /**
      * 登录 （注解跳过权限验证）
@@ -76,11 +76,11 @@ public class LoginController extends BaseController {
                  * 登录需要跳转登录前页面，自己处理 ReturnURL 使用
                  * HttpUtil.decodeURL(xx) 解码后重定向
                  */
-                ajaxResult.setCode(1).setMsg("/index").setObj(st);
+                ajaxResult.setCode(1).setMsg("/home").setObj(st);
                 return ajaxResult;
             }
         }
-        ajaxResult.setCode(0).setMsg("用户名或密码错误").setObj("login");
+        ajaxResult.setCode(0).setMsg("用户名或密码错误").setObj("/login");
         return ajaxResult;
     }
 

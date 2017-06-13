@@ -43,8 +43,8 @@ public class Application extends SpringBootServletInitializer {
 //		app.run(args);
 		ApplicationContext ctx = SpringApplication.run(Application.class, args);
 		logger.info("PortalApplication is sussess!");
-		System.err.println("sample started 1. http://127.0.0.1:8888/index.html");
-		System.err.println("sample started 2. http://127.0.0.1:8888/home.html");
+		System.err.println("sample started 1. http://127.0.0.1:8888/index");
+		System.err.println("sample started 2. http://127.0.0.1:8888/");
 	}
 
 }

@@ -13,6 +13,9 @@ spring:
   output:
     ansi:
       enabled: detect
+#  devtools:
+#    livereload:
+#      enabled:
 
   #mysql+连接池
   datasource:

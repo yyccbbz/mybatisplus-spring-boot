@@ -50,7 +50,9 @@ public class SpringMVCConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new SSOSpringInterceptor()).addPathPatterns("/**");
-        registry.addInterceptor(context.getBean(SSOPermissionInterceptor.class)).addPathPatterns("/test/permission/**");
+        registry.addInterceptor(context.getBean(SSOPermissionInterceptor.class))
+                .addPathPatterns("/test/permission/**")
+                .addPathPatterns("/home");
     }
 
     /**
@@ -67,9 +69,9 @@ public class SpringMVCConfig extends WebMvcConfigurerAdapter {
      * @return viewResolver
      */
     @Bean
-    public InternalResourceViewResolver viewResolver(){
+    public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/static/views/");
+        viewResolver.setPrefix("/views/");
         viewResolver.setSuffix(".html");
         return viewResolver;
     }
