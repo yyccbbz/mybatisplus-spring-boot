@@ -31,6 +31,12 @@ public class EmployeeCreditReportController extends BaseController {
     private IEmployeeCreditReportService employeeCreditReportService;
 
 
+    @RequestMapping
+    public String toPage(){
+        return "dailyList";
+    }
+
+
     @Login(action = Action.Skip)
     @ResponseBody
     @RequestMapping("getList")

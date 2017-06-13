@@ -39,9 +39,10 @@ public class IndexController extends BaseController {
 		if (st != null) {
 			System.err.println(" Long 类型 ID: " + st.getId());
 			model.addAttribute("userId", st.getUid());
+			System.err.println(" 启动注入测试模式：" + SSOConfig.getInstance().getRunMode());
+			return "home";
 		}
-		System.err.println(" 启动注入测试模式：" + SSOConfig.getInstance().getRunMode());
-		return "home";
+		return "/";
 	}
 	
 	/**

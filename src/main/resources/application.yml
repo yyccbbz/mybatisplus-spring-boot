@@ -13,9 +13,9 @@ spring:
   output:
     ansi:
       enabled: detect
-#  devtools:
-#    livereload:
-#      enabled:
+  devtools:
+    restart:
+      enabled: true
 
   #mysql+连接池
   datasource:
@@ -43,5 +43,5 @@ mybatis-plus:
 #logging
 logging:
   level:
-    com.baomidou.springboot: debug
-    root : info
+   com.baomidou.springboot: debug
+   root : info

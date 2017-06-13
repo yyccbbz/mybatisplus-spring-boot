@@ -27,7 +27,7 @@ public class LoginController extends BaseController {
      * 登录 （注解跳过权限验证）
      */
 /*    @Login(action = Action.Skip)
-    @RequestMapping(value = {"/","/login"})
+    @RequestMapping(value = {"/"})
     public String login() {
         SSOToken st = SSOHelper.getToken(request);
         if (st != null) {

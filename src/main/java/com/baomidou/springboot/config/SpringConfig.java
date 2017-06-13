@@ -17,11 +17,11 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @ComponentScan(basePackages = "com.baomidou.springboot.config")
 // 配置扫描包
-@PropertySource(value = { "classpath:jdbc.properties" }, ignoreResourceNotFound = true)
-public class SpringConfig{
+@PropertySource(value = {"classpath:jdbc.properties"}, ignoreResourceNotFound = true)
+public class SpringConfig {
 
     @Bean
-    public ExcelContext excelContext(){
+    public ExcelContext excelContext() {
         return new ExcelContext("excel-config.xml");
     }
 

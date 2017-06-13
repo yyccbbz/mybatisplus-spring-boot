@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html lang="zh-cn">
 <head>
 	<meta charset="utf-8">
@@ -7,19 +7,21 @@
 	<title>通用增删改查</title>
 
 	<link href="../plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
-	<link href="../plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
 	<link href="../plugins/bootstrap-table-1.11.0/bootstrap-table.min.css" rel="stylesheet"/>
+	<link href="../plugins/bootstrap-table-1.11.0/extensions/fixed-column/bootstrap-table-fixed-columns.css" rel="stylesheet"/>
+	<link href="../plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
 	<link href="../plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
 	<link href="../plugins/jquery-confirm/jquery-confirm.min.css" rel="stylesheet"/>
 
 	<link href="../css/common.css" rel="stylesheet"/>
 </head>
 <body>
+
 <div id="main">
 	<div id="toolbar">
-		<a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增用户</a>
+		<!--<a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增用户</a>
 		<a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-edit"></i> 编辑用户</a>
-		<a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-close"></i> 删除用户</a>
+		<a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-close"></i> 删除用户</a>-->
 	</div>
 	<table id="table"></table>
 </div>
@@ -48,6 +50,7 @@
 <script src="../plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
 <script src="../plugins/bootstrap-table-1.11.0/bootstrap-table.min.js"></script>
 <script src="../plugins/bootstrap-table-1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="../plugins/bootstrap-table-1.11.0/extensions/fixed-column/bootstrap-table-fixed-columns.js"></script>
 <script src="../plugins/waves-0.7.5/waves.min.js"></script>
 <script src="../plugins/jquery-confirm/jquery-confirm.min.js"></script>
 
@@ -65,18 +68,18 @@ $(function() {
 	// bootstrap table初始化
 	// http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/
 	$table.bootstrapTable({
-		url: 'data/data1.json',
+		url: 'dailyList/getList',
 		height: getHeight(),
 		striped: true,
-		search: true,
+//		search: true,
 		searchOnEnterKey: true,
 		showRefresh: true,
-		showToggle: true,
-		showColumns: true,
+//		showToggle: true,
+//		showColumns: true,
 		minimumCountColumns: 2,
 		showPaginationSwitch: true,
 		clickToSelect: true,
-		detailView: true,
+//		detailView: true,
 		detailFormatter: 'detailFormatter',
 		pagination: true,
 		paginationLoop: false,
@@ -92,19 +95,51 @@ $(function() {
 		idField: 'systemId',
 		maintainSelected: true,
 		toolbar: '#toolbar',
+        showHeader: true,
+        fixedColumns: true,
+        fixedNumber: 2,
 		columns: [
-			{field: 'state', checkbox: true},
-			{field: 'id', title: '编号', sortable: true, halign: 'center'},
-			{field: 'username', title: '账号', sortable: true, halign: 'center'},
-			{field: 'password', title: '密码', sortable: true, halign: 'center'},
-			{field: 'name', title: '姓名', sortable: true, halign: 'center'},
-			{field: 'sex', title: '性别', sortable: true, halign: 'center'},
-			{field: 'age', title: '年龄', sortable: true, halign: 'center'},
-			{field: 'phone', title: '手机', sortable: true, halign: 'center'},
-			{field: 'email', title: '邮箱', sortable: true, halign: 'center'},
-			{field: 'address', title: '地址', sortable: true, halign: 'center'},
-			{field: 'remark', title: '备注', sortable: true, halign: 'center'},
-			{field: 'action', title: '操作', halign: 'center', align: 'center', formatter: 'actionFormatter', events: 'actionEvents', clickToSelect: false}
+            {field: 'id', title: '编号', sortable: true, align: 'center', valign: "middle"},
+            {field: 'today', title: '日期', sortable: true, align: 'center', valign: "middle"},
+            {field: 'period', title: '时间段', sortable: true, align: 'center', valign: "middle"},
+            {field: 'perApplicationNum', title: '当前时间段内申请笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'dayApplicationNum', title: '当日申请笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'hisApplicationNum', title: '历史申请笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'perHrApprovalNum', title: '当前时间段内HR审批完成笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'dayHrApprovalNum', title: '当日HR审批完成笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'hisHrApprovalNum', title: '历史HR审批完成笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'curHrUnapprovedNum', title: '当前HR剩余未审批笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'perFirstTrialNum', title: '当前时间段内初审完成笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'dayFirstTrialNum', title: '当日初审完成笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'hisFirstTrialNum', title: '历史初审完成笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'curPendingFirstTrialNum', title: '当前剩余初审待审笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'perReviewNum', title: '当前时间段内复审完成笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'dayReviewNum', title: '当日复审完成笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'hisReviewNum', title: '历史复审完成笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'curPendingReviewNum', title: '当前复审待审笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'perPassesNum', title: '当前时间段内审批通过笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'dayPassesNum', title: '当日审批通过笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'hisPassesNum', title: '历史审批通过笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'perSignedNum', title: '当前时间段内签约笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'daySignedNum', title: '当日签约笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'hisSignedNum', title: '历史签约笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'perSuccessLoanNum', title: '当前时间段内放款成功笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'daySuccessLoanNum', title: '当日放款成功笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'hisSuccessLoanNum', title: '历史放款成功笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'perSuccessLoanAmount', title: '当前时间段内放款成功金额', sortable: true, align: 'center', valign: "middle"},
+            {field: 'daySuccessLoanAmount', title: '当日放款成功金额', sortable: true, align: 'center', valign: "middle"},
+            {field: 'hisSuccessLoanAmount', title: '历史放款成功金额', sortable: true, align: 'center', valign: "middle"},
+            {field: 'perFailedLoanNum', title: '当前时间段内放款失败笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'dayFailedLoanNum', title: '当日放款失败笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'hisFailedLoanNum', title: '历史放款失败笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'perFailedLoanAmount', title: '当前时间段内放款失败金额', sortable: true, align: 'center', valign: "middle"},
+            {field: 'dayFailedLoanAmount', title: '当日放款失败金额', sortable: true, align: 'center', valign: "middle"},
+            {field: 'hisFailedLoanAmount', title: '历史放款失败金额', sortable: true, align: 'center', valign: "middle"},
+            {field: 'curNotSignedNum', title: '当前已审未签笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'curNotSignedAmount', title: '当前已审未签金额', sortable: true, align: 'center', valign: "middle"},
+            {field: 'curOutstandingLoanNum', title: '当前未结清贷款笔数', sortable: true, align: 'center', valign: "middle"},
+            {field: 'curLoanBalance', title: '当前贷款余额', sortable: true, align: 'center', valign: "middle"},
+//			{field: 'action', title: '操作', align: 'center', halign: 'center', formatter: 'actionFormatter', events: 'actionEvents', clickToSelect: false}
 		]
 	}).on('all.bs.table', function (e, name, args) {
 		$('[data-toggle="tooltip"]').tooltip();
