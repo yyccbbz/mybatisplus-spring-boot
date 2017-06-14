@@ -38,8 +38,9 @@ function login() {
         success: function (data) {
             console.log(data)
             if (data.code == 1) {
+                alert(JSON.stringify(data));
                 console.log(data.obj);
-                location.href = data.msg;
+                window.location.href = data.msg;
                 // localStorage.setItem("user","123");
             } else {
                 alert(data.msg);

@@ -32,7 +32,7 @@ public class IndexController extends BaseController {
 	 * 非拦截器使用减少二次解密
 	 * </p>
 	 */
-	@Permission("1000")
+//	@Permission("1000")
 	@RequestMapping("/home")
 	public String index(Model model) {
 		SSOToken st = SSOHelper.attrToken(request);
@@ -42,7 +42,7 @@ public class IndexController extends BaseController {
 			System.err.println(" 启动注入测试模式：" + SSOConfig.getInstance().getRunMode());
 			return "home";
 		}
-		return "/";
+		return "home";
 	}
 	
 	/**

@@ -28,32 +28,32 @@ public class SpringMVCConfig extends WebMvcConfigurerAdapter {
     private ApplicationContext context;
 
     //--------------Kisso start--------------------------
-    @Bean(initMethod = "initKisso")
-    public WebKissoConfigurer kissoInit() {
-        WebKissoConfigurer webKissoConfigurer = new WebKissoConfigurer();
-        webKissoConfigurer.setSsoPropPath("properties/sso.properties");
-        return webKissoConfigurer;
-    }
-
-    @Bean
-    public SSOPermissionInterceptor getSSOPermissionInterceptor(SSOAuthorization authorization) {
-        SSOPermissionInterceptor ssoPermissionInterceptor = new SSOPermissionInterceptor();
-        ssoPermissionInterceptor.setIllegalUrl("http://127.0.0.1:8888/test/permission/illegalAccess.html");
-        ssoPermissionInterceptor.setAuthorization(authorization);
-        return ssoPermissionInterceptor;
-    }
-    //--------------Kisso end--------------------------
-
-    /**
-     * 配置拦截器
-     */
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new SSOSpringInterceptor()).addPathPatterns("/**");
-        registry.addInterceptor(context.getBean(SSOPermissionInterceptor.class))
-                .addPathPatterns("/test/permission/**")
-                .addPathPatterns("/home");
-    }
+//    @Bean(initMethod = "initKisso")
+//    public WebKissoConfigurer kissoInit() {
+//        WebKissoConfigurer webKissoConfigurer = new WebKissoConfigurer();
+//        webKissoConfigurer.setSsoPropPath("properties/sso.properties");
+//        return webKissoConfigurer;
+//    }
+//
+//    @Bean
+//    public SSOPermissionInterceptor getSSOPermissionInterceptor(SSOAuthorization authorization) {
+//        SSOPermissionInterceptor ssoPermissionInterceptor = new SSOPermissionInterceptor();
+//        ssoPermissionInterceptor.setIllegalUrl("http://127.0.0.1:8888/test/permission/illegalAccess.html");
+//        ssoPermissionInterceptor.setAuthorization(authorization);
+//        return ssoPermissionInterceptor;
+//    }
+//    //--------------Kisso end--------------------------
+//
+//    /**
+//     * 配置拦截器
+//     */
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(new SSOSpringInterceptor()).addPathPatterns("/**");
+//        registry.addInterceptor(context.getBean(SSOPermissionInterceptor.class))
+//                .addPathPatterns("/test/permission/**")
+//                .addPathPatterns("/home");
+//    }
 
     /**
      * 静态资源过滤
