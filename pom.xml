@@ -50,11 +50,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
-		<!-- template -->
-		<!--<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>-->
+
 		<!--
 			devtools可以实现页面热部署（即页面修改后会立即生效，这个可以直接在application.properties文件中配置
 				spring.thymeleaf.cache=false来实现），
@@ -70,6 +66,14 @@
 			<scope>true</scope>
 		</dependency>
 
+		<!-- httpclient -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<!--<version>4.5.3</version>-->
+		</dependency>
+
+
 		<!-- db config -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -78,7 +82,6 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.version}</version>
 		</dependency>
 		<!--<dependency>
 			<groupId>com.alibaba</groupId>
@@ -89,24 +92,18 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>-->
+
 		<!-- mybatis_plus -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatisplus-spring-boot-starter</artifactId>
 			<version>${mybatisplus-spring-boot-starter.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
 			<version>1.7</version>
 		</dependency>
-
-		<!--<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.3.1</version>
-		</dependency>-->
 
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -125,22 +122,6 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${swagger2.version}</version>
 		</dependency>
-
-		<!--<dependency>
-			<groupId>com.baomidou</groupId>
-			<artifactId>spring-wind</artifactId>
-			<version>1.1.5</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.alibaba</groupId>
-					<artifactId>fastjson</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.baomidou</groupId>
-					<artifactId>mybatis-plus</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>-->
 
 		<!-- commons -->
 		<dependency>

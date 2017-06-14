@@ -165,7 +165,7 @@ select t.hours_desc
       ,coalesce(t2.finial_review_finish_amt ,0) as finial_review_finish_amt
       ,coalesce(t3.finial_review_refuse_cnt ,0) as finial_review_refuse_cnt
       ,coalesce(t3.finial_review_refuse_amt ,0) as finial_review_refuse_amt
-      ,coalesce(t4.finial_review_wait_cnt   ,0) as finial_review_wait_cnt  
+      #,coalesce(t4.finial_review_wait_cnt   ,0) as finial_review_wait_cnt
       #,coalesce(t4.finial_review_wait_amt   ,0) as finial_review_wait_amt   
 from bigdata_ecf_bi.hours t
 left outer join bigdata_ecf_bi.report_finial_review_tmp1 t1 on t.hours=t1.hours
