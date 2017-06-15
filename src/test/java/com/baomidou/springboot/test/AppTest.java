@@ -1,9 +1,10 @@
 package com.baomidou.springboot.test;
 
-import com.alibaba.fastjson.JSONObject;
-import com.baomidou.springboot.entity.TestUser;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.baomidou.springboot.common.http.HttpAPIService;
 
-import java.util.Date;
+import javax.annotation.Resource;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,23 +16,17 @@ import java.util.Date;
  */
 public class AppTest {
 
+    @Resource
+    private HttpAPIService httpAPIService;
 
     public static void main(String[] args) {
 
-        TestUser u = new TestUser();
-
-        u.setTestId(3L);
-        u.setAge(30);
-        u.setName("张三丰");
-        u.setPhone("13688881114");
-        u.setRole(2L);
-        u.setTestDate(new Date());
-        u.setTestType(1);
-
-        System.out.println("u = " + JSONObject.toJSONString(u));
+//        String str = httpAPIService.doGet("http://ds.idc.xiwanglife.com/dataservice/getconfig.do?id=164&date=2017-06-14");
+//        JSONArray values = JSON.parseObject(str).getJSONObject("details").getJSONObject("list").getJSONArray("values");
+//        System.err.println("values = " + values);
+//        System.err.println("values = " + values.toJSONString());
 
     }
-
 
 
 }

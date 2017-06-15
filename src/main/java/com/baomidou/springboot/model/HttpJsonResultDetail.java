@@ -12,10 +12,9 @@ import java.util.Map;
  * @Time: 17:23
  * @Description:
  */
-public class HttpJsonResult {
+public class HttpJsonResultDetail {
 
-    /*"status":"200","message":"","id":164,"configName":"终审","configType":"1","isInterface":1,"isTask":1,
-    "remark":null,
+    /*
     "details":Object{
 
        "list":{

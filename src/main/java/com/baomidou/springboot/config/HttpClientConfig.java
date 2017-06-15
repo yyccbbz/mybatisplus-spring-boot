@@ -61,13 +61,14 @@ public class HttpClientConfig {
      * @return
      */
     @Bean
-    public HttpClientBuilder httpClientBuilder(@Qualifier("httpClientConnectionManager")PoolingHttpClientConnectionManager httpClientConnectionManager){
+    public HttpClientBuilder httpClientBuilder(
+            @Qualifier("httpClientConnectionManager")PoolingHttpClientConnectionManager httpClientConnectionManager){
 
-        //HttpClientBuilder中的构造方法被protected修饰，所以这里不能直接使用new来实例化一个HttpClientBuilder，可以使用HttpClientBuilder提供的静态方法create()来获取HttpClientBuilder对象
+        //HttpClientBuilder中的构造方法被protected修饰，所以这里不能直接使用new来实例化一个HttpClientBuilder，
+        // 可以使用HttpClientBuilder提供的静态方法create()来获取HttpClientBuilder对象
         HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
 
         httpClientBuilder.setConnectionManager(httpClientConnectionManager);
-
         return httpClientBuilder;
     }
 
@@ -77,7 +78,8 @@ public class HttpClientConfig {
      * @return
      */
     @Bean
-    public CloseableHttpClient getCloseableHttpClient(@Qualifier("httpClientBuilder") HttpClientBuilder httpClientBuilder){
+    public CloseableHttpClient closeableHttpClient(
+            @Qualifier("httpClientBuilder") HttpClientBuilder httpClientBuilder){
         return httpClientBuilder.build();
     }
 
