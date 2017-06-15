@@ -40,7 +40,7 @@ public class BaseController {
     private HttpAPIService httpAPIService;
 
     /**
-     * 处理http请求回来的参数
+     * http请求数据
      *
      * @param id
      * @return

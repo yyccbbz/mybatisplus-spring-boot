@@ -19,6 +19,30 @@ public class ReviewController extends BaseController {
     @Value(value = "${finalReview_http_id}")
     private String finalReview_http_id;
 
+    @Value(value = "${mobileReview_http_id}")
+    private String mobileReview_http_id;
+
+    @Value(value = "${firstReview_http_id}")
+    private String firstReview_http_id;
+
+    @Value(value = "${secondReview_http_id}")
+    private String secondReview_http_id;
+
+    @RequestMapping("/mobileReview")
+    public String mobileReview() {
+        return parseHttpJsonResult(mobileReview_http_id);
+    }
+
+    @RequestMapping("/firstReview")
+    public String firstReview() {
+        return parseHttpJsonResult(firstReview_http_id);
+    }
+
+    @RequestMapping("/secondReview")
+    public String secondReview() {
+        return parseHttpJsonResult(secondReview_http_id);
+    }
+
     @RequestMapping("/finalReview")
     public String finalReview() {
         return parseHttpJsonResult(finalReview_http_id);

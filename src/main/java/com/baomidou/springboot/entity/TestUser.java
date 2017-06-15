@@ -17,9 +17,10 @@ import java.io.Serializable;
 @TableName("test_user")
 public class TestUser implements Serializable {
 
-    private static final long serialVersionUID = 1L;
 
-    /**
+	private static final long serialVersionUID = -4237708926994823675L;
+
+	/**
      * 主键ID
      */
     @TableId("test_id")
