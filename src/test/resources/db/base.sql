@@ -1,4 +1,19 @@
-
+Name 姓名
+ID number 身份证号
+phone number 手机号
+Staff coding 员工编码
+gender 性别
+age 年龄
+Entry Time 入职时间
+Resignation time 离职时间
+Length of service 服务年限
+company_name 公司名
+In-service status 在职状态
+Loan application serial number 贷款申请流水号
+Loan application date 贷款申请日期
+The stage of the process 所属流程阶段
+Loan status 贷款状态
+Departure Control 离职管控方式
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
