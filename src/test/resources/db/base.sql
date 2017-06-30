@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
+DROP TABLE IF EXISTS `employee_info`;
+CREATE TABLE `employee_info` (
   `id`  bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键' ,
   `customer_name` varchar(100) NOT NULL COMMENT '姓名' ,
   `id_no` varchar(100) NOT NULL COMMENT '身份证号' ,
